@@ -7,7 +7,20 @@ window.onload = function () {
             e.preventDefault();
             toggle();
         }
-    }
+    };
+
+    let input = document.getElementById("file-input");
+    let label = input.nextElementSibling,
+        labelVal = label.innerHTML;
+
+    input.onchange = function () {
+        let fileName = this.value;
+
+        if (fileName)
+            label.innerHTML = "<strong>FILE CHOSEN</strong> <i class=\"fas fa-check-circle\">";
+        else
+            label.innerHTML = labelVal;
+    };
 
     let container = document.getElementById('container');
     for (let i = 0; i < 10; i++) {

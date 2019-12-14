@@ -99,67 +99,62 @@ label {
     border-radius: 5px;
 }
 
-.score {
-    width: 650px;
-    height: 100%;
-    margin-right: 25px;
-    margin-left: 15px;
-    margin-bottom: 10px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    line-height: 41px;
-    color: #fff;
-    padding: 5px;
-    font-family: 'Proxima Nova', sans-serif;
-    font-weight: 600
-}
-
-.score__player {
-    width: 250px;
-    text-align: start;
-    padding-left: 5px
-}
-
-.score__column {
-    margin-right: 15px;
-    text-align: center
-}
-
-.score__column:last-child {
-    margin-right: 0
-}
-
-.colored {
-    background-color: #7e6929;
-    opacity: .75
-}
-
-.colored-ct {
-    background-color: #386481;
-    opacity: .75;
-    width: 100%;
-}
-
 #score_container {
-    margin: 0;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 20px;
     padding: 0;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background: url('../score_image.jpeg') 30% 40%/cover no-repeat;
     border: 2px solid #3d3d3d;
     -webkit-border-radius: 15px;
     border-radius: 15px
 }
 
-.margin {
-    margin-top: 41px
+#score_container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.team1, .team2 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.team2 {
+    display: flex;
+    margin-right: 20px;
+}
+
+.team1 table tr:nth-child(2n + 1) {
+    background-color: #386481;
+}
+
+.team1 table tr:nth-child(2n) {
+    background-color: #386481;
+    opacity: 0.5;
+}
+
+.team2 table tr:nth-child(2n + 1) {
+    background-color: #7e6929;
+}
+
+.team2 table tr:nth-child(2n) {
+    background-color: #7e6929;
+    opacity: 0.5;
+}
+
+table {
+    color: aliceblue;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    font-size: 1.05em;
+    padding: 15px;
 }

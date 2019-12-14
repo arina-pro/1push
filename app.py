@@ -51,7 +51,8 @@ def upload_file():
     shutil.move("response.json", "log/response.json")
 
     f = flask.request.files['file']
-    f.save(secure_filename('response.json'))
+    if f.filename[:-4] == 'json':
+        f.save(secure_filename('response.json'))
     return '', 201
 
 

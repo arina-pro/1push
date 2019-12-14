@@ -4,15 +4,16 @@
 <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" id="favicon">
 <link href="https://cs.money/fonts/proxima-nova/ProximaNova-Bold.woff2?v=4" rel="stylesheet">
 <link href="https://cs.money/fonts/proxima-nova/ProximaNova-Regular.woff2?v=4" rel="stylesheet">
-<!--<script src="{{ url_for('static', filename="js/script.js")}}"></script>-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<script src="{{ url_for('static', filename="js/script.js")}}"></script>
 <body>
 
 <div id="form-wrapper">
     <form action="/upload" enctype="multipart/form-data" method="POST">
         <input type="file" name="file" id="file-input">
-        <label for="file-input"><strong>CHOOSE A FILE</strong></label>
+        <label for="file-input"><strong>CHOOSE A FILE</strong> <i class="fas fa-upload"></i></label>
         <input type="submit" name="sumbit" id="file-submit"/>
-        <label for="file-submit"><strong>SUBMIT</strong></label>
+        <label for="file-submit"><strong>SUBMIT</strong> <i class="far fa-paper-plane"></i></label>
     </form>
 </div>
 
@@ -24,122 +25,122 @@
 </div>
 
 <div id="score_container">
-    <div class="score">
-      <div class="score__column">
-          <div class="score__player margin"></div>
-          <div class="score__player colored-ct">Player 1</div>
-          <div class="score__player">Player 2</div>
-          <div class="score__player colored-ct">Player 3</div>
-          <div class="score__player">Player 4</div>
-          <div class="score__player colored-ct">Player 5</div>
-      </div>
-      <div class="score__column">
-          <div class="score__money">Money</div>
-          <div class="score__money colored-ct">${{player[0]['Money']}}</div>
-          <div class="score__money">${{player[1]['Money']}}</div>
-          <div class="score__money colored-ct">${{player[2]['Money']}}</div>
-          <div class="score__money">${{player[3]['Money']}}</div>
-          <div class="score__money colored-ct">${{player[4]['Money']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__health">Health</div>
-          <div class="score__health colored-ct">{{player[0]['Health']}}</div>
-          <div class="score__health">{{player[1]['Health']}}</div>
-          <div class="score__health colored-ct">{{player[2]['Health']}}</div>
-          <div class="score__health">{{player[3]['Health']}}</div>
-          <div class="score__health colored-ct">{{player[4]['Health']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__kills">Kills</div>
-          <div class="score__kills colored-ct">{{player[0]['Kills']}}</div>
-          <div class="score__kills">{{player[1]['Kills']}}</div>
-          <div class="score__kills colored-ct">{{player[2]['Kills']}}</div>
-          <div class="score__kills">{{player[3]['Kills']}}</div>
-          <div class="score__kills colored-ct">{{player[4]['Kills']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__assists">Assists</div>
-          <div class="score__assists colored-ct">{{player[0]['Assists']}}</div>
-          <div class="score__assists">{{player[1]['Assists']}}</div>
-          <div class="score__assists colored-ct">{{player[2]['Assists']}}</div>
-          <div class="score__assists">{{player[3]['Assists']}}</div>
-          <div class="score__assists colored-ct">{{player[4]['Assists']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__deaths">Deaths</div>
-          <div class="score__deaths colored-ct">{{player[0]['Deaths']}}</div>
-          <div class="score__deaths">{{player[1]['Deaths']}}</div>
-          <div class="score__deaths colored-ct">{{player[2]['Deaths']}}</div>
-          <div class="score__deaths">{{player[3]['Deaths']}}</div>
-          <div class="score__deaths colored-ct">{{player[4]['Deaths']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__mvps">MVPs</div>
-          <div class="score__mvps colored-ct">{{player[0]['MVPs']}}</div>
-          <div class="score__mvps">{{player[1]['MVPs']}}</div>
-          <div class="score__mvps colored-ct">{{player[2]['MVPs']}}</div>
-          <div class="score__mvps">{{player[3]['MVPs']}}</div>
-          <div class="score__mvps colored-ct">{{player[4]['MVPs']}}</div>
-      </div>
-  </div>
-  <div class="score">
-      <div class="score__column">
-          <div class="score__player margin"></div>
-          <div class="score__player">Player 1</div>
-          <div class="score__player">Player 2</div>
-          <div class="score__player">Player 3</div>
-          <div class="score__player">Player 4</div>
-          <div class="score__player">Player 5</div>
-      </div>
-      <div class="score__column">
-          <div class="score__money">Money</div>
-          <div class="score__money">${{player[5]['Money']}}</div>
-          <div class="score__money">${{player[6]['Money']}}</div>
-          <div class="score__money">${{player[7]['Money']}}</div>
-          <div class="score__money">${{player[8]['Money']}}</div>
-          <div class="score__money">${{player[9]['Money']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__health">Health</div>
-          <div class="score__health">{{player[5]['Health']}}</div>
-          <div class="score__health">{{player[6]['Health']}}</div>
-          <div class="score__health">{{player[7]['Health']}}</div>
-          <div class="score__health">{{player[8]['Health']}}</div>
-          <div class="score__health">{{player[9]['Health']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__kills">Kills</div>
-          <div class="score__kills">{{player[5]['Kills']}}</div>
-          <div class="score__kills">{{player[6]['Kills']}}</div>
-          <div class="score__kills">{{player[7]['Kills']}}</div>
-          <div class="score__kills">{{player[8]['Kills']}}</div>
-          <div class="score__kills">{{player[9]['Kills']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__assists">Assists</div>
-          <div class="score__assists">{{player[5]['Assists']}}</div>
-          <div class="score__assists">{{player[6]['Assists']}}</div>
-          <div class="score__assists">{{player[7]['Assists']}}</div>
-          <div class="score__assists">{{player[8]['Assists']}}</div>
-          <div class="score__assists">{{player[9]['Assists']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__deaths">Deaths</div>
-          <div class="score__deaths">{{player[5]['Deaths']}}</div>
-          <div class="score__deaths">{{player[6]['Deaths']}}</div>
-          <div class="score__deaths">{{player[7]['Deaths']}}</div>
-          <div class="score__deaths">{{player[8]['Deaths']}}</div>
-          <div class="score__deaths">{{player[9]['Deaths']}}</div>
-      </div>
-      <div class="score__column">
-          <div class="score__mvps">MVPs</div>
-          <div class="score__mvps">{{player[5]['MVPs']}}</div>
-          <div class="score__mvps">{{player[6]['MVPs']}}</div>
-          <div class="score__mvps">{{player[7]['MVPs']}}</div>
-          <div class="score__mvps">{{player[8]['MVPs']}}</div>
-          <div class="score__mvps">{{player[9]['MVPs']}}</div>
-      </div>
-  </div>
+    <div class="score team1">
+        <table>
+            <tr>
+                <th></th>
+                <th>Money</th>
+                <th>Health</th>
+                <th>Kills</th>
+                <th>Assists</th>
+                <th>Deaths</th>
+                <th>MVPs</th>
+            </tr>
+            <tr>
+                <td>Player 1</td>
+                <td>${{player[0]['Money']}}</td>
+                <td>{{player[0]['Health']}}</td>
+                <td>{{player[0]['Kills']}}</td>
+                <td>{{player[0]['Assists']}}</td>
+                <td>{{player[0]['Deaths']}}</td>
+                <td>{{player[0]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 2</td>
+                <td>${{player[1]['Money']}}</td>
+                <td>{{player[1]['Health']}}</td>
+                <td>{{player[1]['Kills']}}</td>
+                <td>{{player[1]['Assists']}}</td>
+                <td>{{player[1]['Deaths']}}</td>
+                <td>{{player[1]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 3</td>
+                <td>${{player[2]['Money']}}</td>
+                <td>{{player[2]['Health']}}</td>
+                <td>{{player[2]['Kills']}}</td>
+                <td>{{player[2]['Assists']}}</td>
+                <td>{{player[2]['Deaths']}}</td>
+                <td>{{player[2]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 4</td>
+                <td>${{player[3]['Money']}}</td>
+                <td>{{player[3]['Health']}}</td>
+                <td>{{player[3]['Kills']}}</td>
+                <td>{{player[3]['Assists']}}</td>
+                <td>{{player[3]['Deaths']}}</td>
+                <td>{{player[3]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 5</td>
+                <td>${{player[4]['Money']}}</td>
+                <td>{{player[4]['Health']}}</td>
+                <td>{{player[4]['Kills']}}</td>
+                <td>{{player[4]['Assists']}}</td>
+                <td>{{player[4]['Deaths']}}</td>
+                <td>{{player[4]['MVPs']}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="score team2">
+        <table>
+            <tr>
+                <th></th>
+                <th>Money</th>
+                <th>Health</th>
+                <th>Kills</th>
+                <th>Assists</th>
+                <th>Deaths</th>
+                <th>MVPs</th>
+            </tr>
+            <tr>
+                <td>Player 1</td>
+                <td>${{player[5]['Money']}}</td>
+                <td>{{player[5]['Health']}}</td>
+                <td>{{player[5]['Kills']}}</td>
+                <td>{{player[5]['Assists']}}</td>
+                <td>{{player[5]['Deaths']}}</td>
+                <td>{{player[5]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 2</td>
+                <td>${{player[6]['Money']}}</td>
+                <td>{{player[6]['Health']}}</td>
+                <td>{{player[6]['Kills']}}</td>
+                <td>{{player[6]['Assists']}}</td>
+                <td>{{player[6]['Deaths']}}</td>
+                <td>{{player[6]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 3</td>
+                <td>${{player[7]['Money']}}</td>
+                <td>{{player[7]['Health']}}</td>
+                <td>{{player[7]['Kills']}}</td>
+                <td>{{player[7]['Assists']}}</td>
+                <td>{{player[7]['Deaths']}}</td>
+                <td>{{player[7]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 4</td>
+                <td>${{player[8]['Money']}}</td>
+                <td>{{player[8]['Health']}}</td>
+                <td>{{player[8]['Kills']}}</td>
+                <td>{{player[8]['Assists']}}</td>
+                <td>{{player[8]['Deaths']}}</td>
+                <td>{{player[8]['MVPs']}}</td>
+            </tr>
+            <tr>
+                <td>Player 5</td>
+                <td>${{player[9]['Money']}}</td>
+                <td>{{player[9]['Health']}}</td>
+                <td>{{player[9]['Kills']}}</td>
+                <td>{{player[9]['Assists']}}</td>
+                <td>{{player[9]['Deaths']}}</td>
+                <td>{{player[9]['MVPs']}}</td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 </body>
