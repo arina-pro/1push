@@ -1,12 +1,14 @@
-// document.onload = function() {
-//     let container = document.getElementById('container');
-//     for (let i = 0; i < 10; i++) {
-//         console.log(i);
-//         let elem = document.createElement("div");
-//         elem.className = 'player';
-//         container.appendChild(elem);
-//     }
-// };
+window.onload = function() {
+    let container = document.getElementById('container');
+    for (let i = 0; i < 10; i++) {
+        let elem = document.createElement("div");
+        if (i < 5)
+            elem.className = "player player1";
+        else
+            elem.className = "player player2";
+        container.appendChild(elem);
+    }
+};
 
 function myMove() {
     let xhr = new XMLHttpRequest();
@@ -24,7 +26,7 @@ function myMove() {
         for (let i = 0; i < 10; i++) {
             max_iter = Math.max(max_iter, response['player_' + i]['X'].length);
         }
-        
+
         function frame() {
             if (iter == max_iter) {
                 clearInterval(id);

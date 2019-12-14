@@ -14,8 +14,6 @@ def get_event():
     frame = flask.request.values['frame']
     with open('response.json') as f:
         db = json.load(f)
-
-    frame = 0
     response = []
 
     for event in db['Events']:
