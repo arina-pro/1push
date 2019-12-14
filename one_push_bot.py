@@ -51,7 +51,7 @@ def handle_message(message):
 @bot.message_handler(commands=['start'])
 def echo_all(message):
 	for i in range(0, 2981):
-		URL = "http://7a6066b9.ngrok.io/get-event"
+		URL = "http://66621c3a.ngrok.io/get-event"
 		PARAMS = {'frame': i}
 		r = requests.get(url = URL, params = PARAMS) 
 		data = r.json()
