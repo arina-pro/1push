@@ -36,16 +36,18 @@ def handle_message(message):
 		Score = response["RoundEndState"]["Players"][player_num]["AdditionalInfo"]["StartScore"]
 		Kills = response["RoundEndState"]["Players"][player_num]["AdditionalInfo"]["Kills"]
 		MVPs = response["RoundEndState"]["Players"][player_num]["AdditionalInfo"]["MVPs"]
+		Money = response["RoundEndState"]["Players"][player_num]["Money"]
 		
 		bot.send_message(chat_id, "Kills in previous rounds: " + str(Score))
 		bot.send_message(chat_id, "Kills: " + str(Kills))
 		bot.send_message(chat_id, "Assists: " + str(Assists))
 		bot.send_message(chat_id, "Deaths: " + str(Deaths))
 		bot.send_message(chat_id, "MVPs: " + str(MVPs))
+		bot.send_message(chat_id, "Money: " + str(Money))
 
 @bot.message_handler(commands=['start'])
 def echo_all(message):
-	for i in range(2981):
+	for i in range(0, 2981):
 		URL = "http://486f82fb.ngrok.io/get-event"
 		PARAMS = {'frame': i}
 		r = requests.get(url = URL, params = PARAMS) 
@@ -56,7 +58,7 @@ def echo_all(message):
 			#bot.send_message(chat_id, 'EventType: ' + dic[str(data[j]['EventType']) if int(data[j]['EventType']) < 67 else '0'])
 			print(data[j])
 			#if j == 5:
-			#	break
+			#	breaks
 		time.sleep(2)
 
 bot.polling()
