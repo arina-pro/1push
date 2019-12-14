@@ -1,5 +1,8 @@
+import os
 import json
 import flask
+import shutil
+from werkzeug import secure_filename
 
 app = flask.Flask(__name__, static_url_path='', static_folder='static')
 
@@ -36,14 +39,29 @@ def get_response():
     for i in range(10):
         response['RoundStartState'][f'player_{i}'] = db['RoundStartState']['Players'][i]['AdditionalInfo']
         response['RoundStartState'][f'player_{i}']['Money'] = db['RoundStartState']['Players'][i]['Money']
+        response['RoundStartState'][f'player_{i}']['Health'] = db['RoundStartState']['Players'][i]['Hp']
 
     return response
 
 
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'log' not in os.listdir():
+        os.mkdir('log')
+    shutil.move("response.json", "log/response.json")
+
+    f = flask.request.files['file']
+    f.save(secure_filename('response.json'))
+    return '', 201
+
+
 @app.route('/test', methods=['GET'])
 def test():
-    return flask.render_template('test.html')
+    response = get_response()
+    player = [response['RoundStartState'][i] for i in response['RoundStartState']]
+    return flask.render_template('test.html', player=player)
 
 
 if __name__ == '__main__':
+
     app.run()

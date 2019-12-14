@@ -1,9 +1,19 @@
 body {
     background-color: rgb(53, 50, 50);
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+#container, #form-wrapper {
+    width: 650px;
+}
+
+#form-wrapper {
+    display: block;
+    margin: 30px auto;
 }
 
 #container {
-    width: 650px;
+    display: block;
     height: 650px;
     margin: 0 auto;
     padding: 0;
@@ -54,4 +64,102 @@ body {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#file-input, #file-submit {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+#file-input + label, #file-submit + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: black;
+    background-color: #d8c78f;
+    display: inline-block;
+  cursor: pointer; /* "hand" cursor */
+}
+
+#file-input + label *,
+#file-submit + label * {
+  pointer-events: none;
+}
+
+#file-submit + label {
+    float: right;
+    clear: both;
+}
+
+label {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.score {
+    width: 650px;
+    height: 100%;
+    margin-right: 25px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    line-height: 41px;
+    color: #fff;
+    padding: 5px;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 600
+}
+
+.score__player {
+    width: 250px;
+    text-align: start;
+    padding-left: 5px
+}
+
+.score__column {
+    margin-right: 15px;
+    text-align: center
+}
+
+.score__column:last-child {
+    margin-right: 0
+}
+
+.colored {
+    background-color: #7e6929;
+    opacity: .75
+}
+
+.colored-ct {
+    background-color: #386481;
+    opacity: .75;
+    width: 100%;
+}
+
+#score_container {
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: url('../score_image.jpeg') 30% 40%/cover no-repeat;
+    border: 2px solid #3d3d3d;
+    -webkit-border-radius: 15px;
+    border-radius: 15px
+}
+
+.margin {
+    margin-top: 41px
 }

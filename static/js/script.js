@@ -2,8 +2,9 @@ let isPause;
 let coef_x, coef_y;
 
 window.onload = function () {
-    document.body.onkeyup = function (e) {
+    document.body.onkeypress = function (e) {
         if (e.keyCode === 32 || e.key === ' ') {
+            e.preventDefault();
             toggle();
         }
     }
