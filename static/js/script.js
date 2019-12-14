@@ -1,7 +1,13 @@
 let isPause;
 let coef_x, coef_y;
 
-window.onload = function() {
+window.onload = function () {
+    document.body.onkeyup = function (e) {
+        if (e.keyCode === 32 || e.key === ' ') {
+            toggle();
+        }
+    }
+
     let container = document.getElementById('container');
     for (let i = 0; i < 10; i++) {
         let elem = document.createElement("div");
@@ -72,3 +78,4 @@ function myMove() {
         }
     }
 }
+
