@@ -1,0 +1,25 @@
+#container {
+    width: 500px;
+    height: 500px;
+    padding: 0;
+    position: relative;
+    /*background: yellow;*/
+    background-image: url('../Mirage.png');
+    background-size: 100%;
+}
+
+.player {
+    width: 50px;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.player1 {
+    background: url('../Player_1.png') no-repeat;
+}
+
+.player2 {
+    background: url('../Player_2.png') no-repeat;
+}

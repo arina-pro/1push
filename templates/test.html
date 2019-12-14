@@ -1,72 +1,25 @@
 <!DOCTYPE html>
 <html>
-<style>
-#container {
-    width: 500px;
-    height: 500px;
-    padding: 0;
-    position: relative;
-    /*background: yellow;*/
-    background-image: url('./Mirage.png');
-    background-size: 100%;
-}
-
-#animate {
-    width: 50px;
-    height: 50px;
-    bottom: 0px;
-    left: 0px;
-    position: absolute;
-    background: url('./Player 2d.png') no-repeat;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<head>
+    <script src="{{ url_for('static', filename="js/script.js")}}"></script>
+</head>
 <body>
 
 <p><button onclick="myMove()">Click Me</button></p>
 
 <div id ="container">
-  <div id ="animate"></div>
+    <div class="player player1"></div>
+    <div class="player player1"></div>
+    <div class="player player1"></div>
+    <div class="player player1"></div>
+    <div class="player player1"></div>
+    <div class="player player2"></div>
+    <div class="player player2"></div>
+    <div class="player player2"></div>
+    <div class="player player2"></div>
+    <div class="player player2"></div>
 </div>
-
-<script>
-
-function myMove() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", '/get-response', true);
-    xhr.send(null);
-    let response;
-    xhr.onload = function () {
-        response = JSON.parse(xhr.responseText);
-
-        let elem = document.getElementById("animate");
-        let iter = 0;
-        let id = setInterval(frame, 20);
-
-        function frame() {
-            if (iter <= response['player_0']['X']) {
-                clearInterval(id);
-            } else {
-                iter++;
-                let x = response['player_0']['X'][iter];
-                let y = response['player_0']['Y'][iter];
-                x = 1000 + (x - 1261.71875) / 2.56;
-                y = 1000 + (y - 669.140625) / -2.56;
-                x = Math.trunc(x / 4);
-                y = Math.trunc(y / 4);
-                console.log(x, y);
-
-                //y = 270
-                //x = 430
-
-                //y = 62
-                //x = -12
-                elem.style.bottom = y + "px";
-                elem.style.left = x + "px";
-            }
-        }
-    }
-}
-</script>
 
 </body>
 </html>

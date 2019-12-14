@@ -9,6 +9,22 @@ def get_json():
     return 'Empty'
 
 
+@app.route('/get-event', methods=['GET'])
+def get_event():
+    frame = flask.request.values['frame']
+    with open('response.json') as f:
+        db = json.load(f)
+
+    frame = 0
+    response = []
+
+    for event in db['Events']:
+        if event['FrameNumber'] == frame:
+            response.append(event)
+
+    return json.dumps(response)
+
+
 @app.route('/get-response', methods=['GET'])
 def get_response():
     with open('response.json') as f:
