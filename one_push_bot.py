@@ -6,10 +6,10 @@ from telebot import types
 
 TOKEN = "933287638:AAHZSQ3f7UZDY8ZrbwzttjR0NbtwaVepg_Y"
 
-with open('./one-push-bot/response.json') as f:
+with open('response.json') as f:
     response = json.load(f)
 
-with open('./one-push-bot/dict.json') as f2:
+with open('dict.json') as f2:
 	dic = json.load(f2)
 
 bot = telebot.TeleBot(TOKEN)
