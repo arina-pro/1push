@@ -1,3 +1,6 @@
+let isPause;
+let coef_x, coef_y;
+
 window.onload = function() {
     let container = document.getElementById('container');
     for (let i = 0; i < 10; i++) {
@@ -8,7 +11,23 @@ window.onload = function() {
             elem.className = "player player2";
         container.appendChild(elem);
     }
+    coef_x = parseInt(getComputedStyle(container).width) / 2000.0
+    coef_y = parseInt(getComputedStyle(container).height) / 2000.0
+
+    isPause = true;
+    myMove();
 };
+
+function toggle() {
+    if (isPause) {
+        document.getElementById("overlay").style.display = "none";
+        isPause = false;
+    }
+    else {
+        document.getElementById("overlay").style.display = "block";
+        isPause = true;
+    }
+}
 
 function myMove() {
     let xhr = new XMLHttpRequest();
@@ -31,14 +50,15 @@ function myMove() {
             if (iter == max_iter) {
                 clearInterval(id);
             } else {
-                iter++;
+                if (!isPause)
+                    iter++;
                 for (let i = 0; i < 10; i++) {
                     let x = response['player_' + i]['X'][iter];
                     let y = response['player_' + i]['Y'][iter];
                     x = 1500 + (x - 670) / 2.56;
                     y = 1500 + (y - 851) / 2.56;
-                    x = Math.trunc(x / 4);
-                    y = Math.trunc(y / 4);
+                    x = Math.trunc(x * coef_x);
+                    y = Math.trunc(y * coef_y);
 
                     if (response['player_' + i]['X'].length >= iter) {
                         elem[i].style.bottom = y + "px";

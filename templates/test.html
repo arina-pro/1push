@@ -5,9 +5,11 @@
 <script src="{{ url_for('static', filename="js/script.js")}}"></script>
 <body>
 
-<p><button onclick="myMove()">Click Me</button></p>
-
-<div id ="container">
+<div id="container" onclick="toggle()">
+    <div id="overlay">
+        <img id="play-icon" src="/pause.png" />
+    </div>
+    <form action='POST'>
 </div>
 
 </body>

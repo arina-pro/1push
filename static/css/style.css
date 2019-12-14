@@ -1,11 +1,20 @@
+body {
+    background-color: rgb(53, 50, 50);
+}
+
 #container {
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 650px;
+    margin: 0 auto;
     padding: 0;
     position: relative;
-    /*background: yellow;*/
+    background-color: rgb(53, 50, 50);
     background-image: url('../Mirage.png');
     background-size: 100%;
+}
+
+#container button {
+    top: 0px;
 }
 
 .player {
@@ -22,4 +31,27 @@
 
 .player2 {
     background: url('../Player_2.png') no-repeat;
+}
+
+#overlay {
+    display: block;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+#play-icon {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
